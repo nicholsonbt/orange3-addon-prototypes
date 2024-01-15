@@ -1,0 +1,2 @@
+include orangecontrib/spectroscopy_prototypes/tutorials/*.ows
+include orangecontrib/spectroscopy_prototypes/widgets/icons/*
