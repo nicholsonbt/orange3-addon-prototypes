@@ -13,6 +13,8 @@ PACKAGES = find_packages()
 PACKAGE_DATA = {
     'orangecontrib.spectroscopy_prototypes': ['tutorials/*.ows'],
     'orangecontrib.spectroscopy_prototypes.widgets': ['icons/*'],
+    'orangecontrib.matrix_prototypes': ['tutorials/*.ows'],
+    'orangecontrib.matrix_prototypes.widgets': ['icons/*'],
 }
 
 INSTALL_REQUIRES = [
@@ -24,23 +26,28 @@ ENTRY_POINTS = {
     # be shown in the add-ons manager even if not published on PyPi.
     'orange3.addon': (
         'spectroscopy_prototypes = orangecontrib.spectroscopy_prototypes',
+        'matrix_prototypes = orangecontrib.matrix_prototypes',
     ),
     # Entry point used to specify packages containing tutorials accessible
     # from welcome screen. Tutorials are saved Orange Workflows (.ows files).
     'orange.widgets.tutorials': (
         # Syntax: any_text = path.to.package.containing.tutorials
         'spectroscopy_prototypes_tutorials = orangecontrib.spectroscopy_prototypes.tutorials',
+        'matrix_prototypes_tutorials = orangecontrib.matrix_prototypes.tutorials',
     ),
 
     # Entry point used to specify packages containing widgets.
     'orange.widgets': (
         # Syntax: category name = path.to.package.containing.widgets
         'SpectroscopyPrototypes = orangecontrib.spectroscopy_prototypes.widgets',
+        'MatrixPrototypes = orangecontrib.matrix_prototypes.widgets',
     ),
 
     # Register widget help
     "orange.canvas.help": (
-        'html-index = orangecontrib.spectroscopy_prototypes.widgets:WIDGET_HELP_PATH',)
+        'html-index-spectroscopy = orangecontrib.spectroscopy_prototypes.widgets:WIDGET_HELP_PATH',
+        'html-index-matrix = orangecontrib.matrix_prototypes.widgets:WIDGET_HELP_PATH',
+        )
 }
 
 NAMESPACE_PACKAGES = ["orangecontrib"]
