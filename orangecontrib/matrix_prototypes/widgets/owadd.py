@@ -31,12 +31,8 @@ class OWAdd(OWWidget):
         self.Error.clear()
 
         for matrix in self.matrices:
-            if np.any([attr != ContinuousVariable for attr in matrix.domain.attributes]):
+            if np.any([type(attr) != ContinuousVariable for attr in matrix.domain.attributes]):
                 self.Error.non_numeric()
-
-            print(matrix.domain.attributes)
-            print([attr != ContinuousVariable for attr in matrix.domain.attributes])
-            print(np.any([attr != ContinuousVariable for attr in matrix.domain.attributes]))
 
         if len(self.matrices) > 1:
             shape = self.matrices[0].X.shape
@@ -67,7 +63,7 @@ class OWAdd(OWWidget):
         table = None
 
         if self.matrices:
-            table = self.matrices[0]
+            table = self.matrices[0].copy()
 
             for i in range(1, len(self.matrices)):
                 table.X += self.matrices[i].X
